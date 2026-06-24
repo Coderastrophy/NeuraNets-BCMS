@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - NeuraNotes</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/shared.css">
+    <style>
+        body { background-color: #f9f9f9; }
+        .admin-sidebar { background: #fff; height: 100vh; position: fixed; width: 250px; border-right: 1px solid #eee; }
+        .admin-content { margin-left: 250px; padding: 2rem; }
+        .nav-link.active { background-color: #f0f0f0; color: #000; font-weight: 600; }
+        .table-card { background: #fff; border-radius: 8px; border: 1px solid #eee; overflow: hidden; }
+        .status-badge { font-size: 0.8em; padding: 0.2rem 0.5rem; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="admin-sidebar d-flex flex-column p-3">
+        <a href="/" class="d-flex align-items-center mb-4 text-decoration-none text-dark">
+            <i class="bi bi-journal-richtext fs-4 me-2"></i>
+            <span class="fs-5 fw-bold" style="font-family: 'Playfair Display', serif;">NeuraNotes Admin</span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="#" class="nav-link active" data-tab="users">
+                    <i class="bi bi-people me-2"></i> Users
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-dark" data-tab="posts">
+                    <i class="bi bi-file-text me-2"></i> Posts
+                </a>
+            </li>
+        </ul>
+        <hr>
+        <div class="mt-auto pt-3 border-top">
+            <div class="d-flex align-items-center justify-content-between px-2">
+                <div class="d-flex align-items-center text-dark text-decoration-none">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                        <i class="bi bi-person-fill text-white"></i>
+                    </div>
+                    <strong>Admin</strong>
+                </div>
+                <button id="admin-logout-btn" class="btn btn-outline-dark btn-sm" title="Sign out">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </div>
+            <div class="text-center mt-2">
+                 <a href="index.html" class="text-muted small text-decoration-none">Back to Website</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <div id="users-view">
+            <h2 class="mb-4">User Management</h2>
+            <div class="table-card shadow-sm">
+                <table class="table table-hover mb-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="ps-4">ID</th>
+                            <th>User</th>
+                            <th>Full Name</th>
+                            <th>Bio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        <!-- Users will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="posts-view" class="d-none">
+            <h2 class="mb-4">Post Management</h2>
+            <div class="table-card shadow-sm">
+                <table class="table table-hover mb-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="ps-4">ID</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Stats</th>
+                        </tr>
+                    </thead>
+                    <tbody id="posts-table-body">
+                        <!-- Posts will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="loading-spinner" class="text-center py-5 d-none">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="detailModalLabel">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <pre id="detailContent" class="bg-light p-3 rounded border" style="white-space: pre-wrap; font-size: 0.9em; max-height: 60vh; overflow-y: auto;"></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- App Logic -->
+    <script type="module" src="scripts/apps/AdminApp.js"></script>
+    <script type="module">
+        import AdminApp from './scripts/apps/AdminApp.js';
+        document.addEventListener('DOMContentLoaded', () => {
+             const app = new AdminApp();
+             app.init();
+        });
+    </script>
+</body>
+</html>

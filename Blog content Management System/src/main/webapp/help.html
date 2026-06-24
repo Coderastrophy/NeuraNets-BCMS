@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - NeuraNotes</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+    <style>
+        .accordion-button:not(.collapsed) {
+            color: #1a8917;
+            background-color: #e8f3e8;
+        }
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(26, 137, 23, 0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Simplified Nav -->
+    <nav class="navbar border-bottom p-3">
+        <div class="container">
+            <a href="index.html" class="navbar-brand fw-bold fs-4" style="color: var(--text-main);">NeuraNotes</a>
+            <div class="d-flex align-items-center gap-3">
+                <button id="themeToggle" class="theme-switch" title="Toggle Theme" onclick="toggleAppTheme()">
+                    <div class="switch-knob">
+                        <i class="bi bi-sun-fill"></i>
+                    </div>
+                </button>
+                <a href="index.html" class="btn btn-outline-secondary btn-sm" style="color: var(--text-main); border-color: var(--border-color);">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="serif-font mb-4 text-center">Help Center</h1>
+                <p class="text-center text-muted mb-5">Frequently asked questions and support.</p>
+
+                <div class="accordion" id="faqAccordion">
+                    
+                    <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                How do I write a story?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Click the "Write" button in the top navigation bar. You can add a title, choose a category, and write your content using our rich text editor. Don't forget to add a cover image!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                How do I follow other authors?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                When reading a post, you'll see a 'Follow' button next to the author's name. Click it to add them to your following list. You can see who you follow in the sidebar.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                Can I edit or delete my posts?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Yes! Navigate to your post, click the three-dot menu, and select 'Edit' or 'Delete'. Please note that you can only manage posts that you have authored.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                How do bookmarks work?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Clicking separate 'Save' icon on any post adds it to your Library. You can view all your saved stories by clicking 'Library' in your profile menu or sidebar.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="text-center mt-5">
+                    <p class="text-muted">Still need help?</p>
+                    <a href="mailto:support@neuranotes.com" class="btn btn-success rounded-pill px-4">Contact Support</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/apps/GlobalApp.js"></script>
+</body>
+</html>

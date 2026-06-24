@@ -1,0 +1,176 @@
+/* Note: Common variables and base styles are in shared.css */
+
+/* --- MAIN CONTENT --- */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.content-grid {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.feed-column {
+    flex: 1;
+    padding: 40px 48px;
+    border-right: 1px solid var(--border-color);
+    min-width: 0;
+}
+
+.right-column {
+    width: 360px;
+    flex-shrink: 0;
+    padding: 40px;
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+}
+
+@media (max-width: 1080px) {
+    .right-column { display: none; }
+    .feed-column { border-right: none; padding: 24px; }
+}
+
+/* Tabs & Feed */
+.feed-tabs {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 32px;
+    overflow-x: auto;
+}
+.tab-link {
+    padding-bottom: 12px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    position: relative;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.tab-link:hover { color: var(--text-main); }
+.tab-link.active { color: var(--text-main); font-weight: 500; }
+.tab-link.active::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--text-main);
+}
+
+/* --- ORIGINAL POST LAYOUT REFINED --- */
+.article-card { 
+    margin-bottom: 48px; 
+    cursor: default;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 32px;
+}
+
+.article-content-container {
+    position: relative;
+}
+
+.article-title { 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    margin: 8px 0 12px 0; 
+    color: var(--text-main); 
+    line-height: 1.25; 
+}
+
+.article-desc { 
+    font-size: 1rem; 
+    color: var(--text-muted); 
+    line-height: 1.6; 
+    margin-bottom: 24px; 
+}
+
+.article-img-floated {
+    float: right;
+    width: 160px;
+    height: 105px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-left: 32px;
+    margin-bottom: 16px;
+}
+
+.article-meta { 
+    font-size: 0.85rem; 
+    color: var(--text-muted); 
+    display: flex; 
+    align-items: center; 
+}
+
+.interaction-group {
+    display: flex;
+    align-items: center;
+    gap: 32px; /* Evenly spaced buttons */
+}
+
+.interaction-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.15s;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.interaction-item:hover { color: var(--text-main); }
+.interaction-item i { font-size: 1.2rem; }
+
+/* Recommended Topics Refined */
+.topic-btn {
+    padding: 8px 16px;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 20px; /* Fully rounded/pill shape */
+    font-size: 0.9rem;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.topic-btn:hover {
+    background-color: var(--border-color);
+    border-color: var(--text-muted);
+}
+
+[data-theme="dark"] .topic-btn {
+    background-color: #2c2c2c;
+    border-color: #444;
+}
+
+[data-theme="dark"] .topic-btn:hover {
+    background-color: #3d3d3d;
+}
+
+/* Staff Picks / Right Sidebar Visibility Fixes */
+.sidebar-heading {
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.staff-pick-author span {
+    color: var(--text-main);
+    font-size: 0.85rem;
+}
+
+.staff-pick-title {
+    color: var(--text-main);
+    font-weight: 700;
+    margin-top: 4px;
+    font-size: 1rem;
+    line-height: 1.3;
+}

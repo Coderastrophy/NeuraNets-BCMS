@@ -1,0 +1,20 @@
+/* Note: Common variables and base styles are in shared.css */
+
+/* --- STATS SPECIFIC --- */
+.main-content { flex-grow: 1; padding: 48px 64px; }
+
+.dash-tabs { display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); margin-bottom: 40px; margin-top: 20px; }
+.dash-tab { text-decoration: none; color: var(--text-muted); padding-bottom: 12px; font-size: 0.95rem; }
+.dash-tab.active { color: var(--text-main); border-bottom: 1px solid var(--text-main); }
+
+.stat-number { font-family: 'Roboto', sans-serif; font-size: 2.8rem; font-weight: 500; margin-bottom: 5px; color: var(--text-main); }
+.stat-label { font-size: 0.95rem; color: var(--text-muted); }
+
+/* Fake Chart */
+.chart-container { height: 200px; display: flex; align-items: flex-end; gap: 6px; padding-top: 50px; opacity: 0.8; }
+.chart-bar { flex: 1; background: var(--text-main); opacity: 0.2; transition: opacity 0.2s, height 1s ease; border-radius: 2px 2px 0 0; }
+.chart-bar:hover { opacity: 1; background: var(--brand-green); }
+
+@media (max-width: 768px) {
+    .main-content { padding: 24px; }
+}

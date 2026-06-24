@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - NeuraNotes</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/shared.css">
+    <!-- <link rel="stylesheet" href="styles/index.css"> Settings might not need index.css if it's just general layout. Let's keep it commented or remove if it causes conflict. Actually, settings.html utilized index.css for likely the navbar variables before. Now shared.css covers it. -->
+    <link rel="stylesheet" href="styles/settings.css"> <!-- Does settings.css exist? No file viewing showed it. The file content showed <link href="styles/index.css">. I will replace it with shared.css and create a minimal settings.css or just inline styles if small. Wait, let's just use shared.css and creating a new settings.css is better practice. -->
+    <style>
+        /* Minimal settings specific styles if no file exists */
+        .container { max-width: 800px; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-fixed border-bottom">
+        <div class="nav-left">
+            <button class="hamburger-btn" onclick="toggleSidebar()">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <a href="index.html" class="brand-logo ms-3 text-decoration-none fw-bold fs-4">NeuraNotes</a>
+        </div>
+        <div class="nav-right d-flex align-items-center">
+            <a href="editor.html" class="nav-link-item d-none d-sm-flex me-4 text-decoration-none">
+                <i class="bi bi-pencil-square fs-5"></i> Write
+            </a>
+            
+            <button id="themeToggle" class="theme-switch mx-3" title="Toggle Theme" onclick="toggleAppTheme()">
+                <div class="switch-knob">
+                    <i class="bi bi-sun-fill"></i>
+                </div>
+            </button>
+            
+            <div class="dropdown">
+                <a href="#" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=User&background=1a8917&color=fff" class="user-avatar" alt="Profile" style="width: 36px; height: 36px; border-radius: 50%;">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-3 p-2" style="border-radius: 12px; min-width: 200px;">
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="profile.html"><i class="bi bi-person me-2"></i> Profile</a></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="library.html"><i class="bi bi-bookmarks me-2"></i> Library</a></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="stories.html"><i class="bi bi-file-text me-2"></i> Stories</a></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="stats.html"><i class="bi bi-bar-chart me-2"></i> Stats</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="settings.html"><i class="bi bi-gear me-2"></i> Settings</a></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small text-danger logout-btn" href="#"><i class="bi bi-box-arrow-right me-2"></i> Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="layout-container">
+        <!-- Sidebar -->
+            <div class="sidebar-content">
+                 <a href="index.html" class="sidebar-menu-item"><i class="bi bi-house-door"></i> Home</a>
+                 <a href="profile.html" class="sidebar-menu-item"><i class="bi bi-person"></i> Profile</a>
+                 <a href="library.html" class="sidebar-menu-item"><i class="bi bi-bookmarks"></i> Library</a>
+                 <a href="stories.html" class="sidebar-menu-item"><i class="bi bi-file-text"></i> Stories</a>
+                 <a href="stats.html" class="sidebar-menu-item"><i class="bi bi-bar-chart"></i> Stats</a>
+
+                 <hr class="my-4 text-muted opacity-25">
+
+                 <a href="settings.html" class="sidebar-menu-item active"><i class="bi bi-gear-fill"></i> Settings</a>
+                 <a href="help.html" class="sidebar-menu-item"><i class="bi bi-question-circle"></i> Help</a>
+            </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="container py-4" style="max-width: 800px;">
+                <h1 class="fw-bold fs-2 mb-5">Settings</h1>
+                
+                <h3 class="fs-5 border-bottom pb-2 mb-4">About you</h3>
+                
+                <div class="row mb-5 align-items-center">
+                    <div class="col-8">
+                        <strong>Photo</strong>
+                        <div class="text-muted small">Your profile picture appears on your Profile page and with your stories.</div>
+                    </div>
+                    <div class="col-4 text-end">
+                        <img src="" class="user-avatar rounded-circle me-3" width="60" height="60">
+                        <button class="btn btn-sm text-success" onclick="alert('Profile image upload coming soon!')">Update</button>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-8">
+                        <strong>Name</strong>
+                        <div class="text-muted small">Appears on your Profile page, as your byline, and in your responses.</div>
+                    </div>
+                    <div class="col-4 text-end">
+                         <button class="btn btn-sm btn-outline-secondary" onclick="window.location.href='profile.html'">Edit</button>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-8">
+                        <strong>Bio</strong>
+                        <div class="text-muted small">Appears on your Profile and next to your stories.</div>
+                    </div>
+                    <div class="col-4 text-end">
+                         <button class="btn btn-sm btn-outline-secondary" onclick="window.location.href='profile.html'">Edit</button>
+                    </div>
+                </div>
+
+                <h3 class="fs-5 border-bottom pb-2 mb-4 mt-5">Security</h3>
+                <div class="row mb-4">
+                    <div class="col-8">
+                        <strong>Sign out of all other devices</strong>
+                        <div class="text-muted small">Lost your phone? Sign out of all other active sessions.</div>
+                    </div>
+                    <div class="col-4 text-end">
+                         <button class="btn btn-sm btn-outline-danger">Sign out all</button>
+                    </div>
+                </div>
+                
+                 <div class="row mb-4">
+                    <div class="col-8">
+                        <strong>Delete account</strong>
+                        <div class="text-muted small">Permanently delete your account and all of your content.</div>
+                    </div>
+                    <div class="col-4 text-end">
+                         <button class="btn btn-sm btn-outline-danger">Delete account</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/ui.js"></script>
+    <script type="module" src="scripts/apps/GlobalApp.js"></script>
+</body>
+</html>

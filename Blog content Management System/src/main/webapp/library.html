@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Library - NeuraNotes</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/library.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-fixed border-bottom">
+        <div class="nav-left">
+            <button class="hamburger-btn" onclick="toggleSidebar()">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <a href="index.html" class="brand-logo ms-3 text-decoration-none fw-bold fs-4">NeuraNotes</a>
+            <div class="search-box d-none d-md-block ms-4">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search">
+            </div>
+        </div>
+
+        <div class="nav-right d-flex align-items-center">
+            <a href="editor.html" class="nav-link-item d-none d-sm-flex me-4 text-decoration-none">
+                <i class="bi bi-pencil-square fs-5"></i> Write
+            </a>
+            
+            <button id="themeToggle" class="theme-switch mx-3" title="Toggle Theme" onclick="toggleAppTheme()">
+                <div class="switch-knob">
+                    <i class="bi bi-sun-fill"></i>
+                </div>
+            </button>
+            
+            <div class="dropdown me-3">
+                    <i class="bi bi-bell fs-5"></i>
+                    <span class="notification-badge d-none badge rounded-pill bg-success" style="position: absolute; top: -5px; right: -5px; font-size: 0.6rem;">0</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end shadow border-0 p-0 notification-dropdown" style="width: 320px; border-radius: 12px; overflow: hidden; margin-top: 15px;">
+                    <div class="p-3 border-bottom d-flex justify-content-between align-items-center bg-light">
+                        <span class="fw-bold small">Notifications</span>
+                        <button class="btn btn-sm btn-link text-success p-0 text-decoration-none mark-all-read" style="font-size: 0.75rem;">Mark all as read</button>
+                    </div>
+                    <div id="notificationList" class="notification-list" style="max-height: 350px; overflow-y: auto;">
+                        <div class="p-4 text-center text-muted small">All caught up!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=User&background=1a8917&color=fff" class="user-avatar" alt="Profile" style="width: 36px; height: 36px; border-radius: 50%;">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-3 p-2" style="border-radius: 12px; min-width: 200px;">
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="profile.html"><i class="bi bi-person me-2"></i> Profile</a></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="library.html"><i class="bi bi-bookmarks me-2"></i> Library</a></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="stories.html"><i class="bi bi-file-text me-2"></i> Stories</a></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="stats.html"><i class="bi bi-bar-chart me-2"></i> Stats</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small" href="settings.html"><i class="bi bi-gear me-2"></i> Settings</a></li>
+                    <li><a class="dropdown-item rounded-3 py-2 small text-danger logout-btn" href="#"><i class="bi bi-box-arrow-right me-2"></i> Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. LAYOUT CONTAINER -->
+    <div class="layout-container">
+        
+        <!-- LEFT SIDEBAR -->
+        <div class="left-sidebar" id="leftSidebar">
+            <div class="sidebar-content">
+                <a href="index.html" class="sidebar-menu-item"><i class="bi bi-house-door"></i> Home</a>
+                <a href="profile.html" class="sidebar-menu-item"><i class="bi bi-person"></i> Profile</a>
+                <a href="library.html" class="sidebar-menu-item active"><i class="bi bi-bookmarks-fill"></i> Library</a>
+                <a href="stories.html" class="sidebar-menu-item"><i class="bi bi-file-text"></i> Stories</a>
+                <a href="stats.html" class="sidebar-menu-item"><i class="bi bi-bar-chart"></i> Stats</a>
+
+                <hr class="my-4 text-muted opacity-25">
+
+                <a href="#" class="sidebar-menu-item"><i class="bi bi-gear"></i> Settings</a>
+                <a href="#" class="sidebar-menu-item"><i class="bi bi-question-circle"></i> Help</a>
+
+                <hr class="my-4 text-muted opacity-25">
+
+                <h6 class="text-muted small fw-bold mb-3">Following</h6>
+                <a href="#" class="sidebar-menu-item py-1">
+                    <img src="https://ui-avatars.com/api/?name=UX&background=random" class="rounded-circle me-3" width="20">
+                    <span class="text-dark">UX Collective</span>
+                </a>
+                <a href="#" class="sidebar-menu-item py-1">
+                    <img src="https://ui-avatars.com/api/?name=JS&background=random" class="rounded-circle me-3" width="20">
+                    <span class="text-dark">Julia Serano</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- MAIN LIBRARY CONTENT -->
+        <div class="main-content">
+            <div class="library-grid">
+                
+                <!-- Title Row -->
+                <div class="library-head-row">
+                    <h1 class="page-heading serif-font">Your library</h1>
+                    <button class="btn-new-list">New list</button>
+                </div>
+
+                <!-- Tabs -->
+                <div class="library-tabs">
+                    <a href="#" class="lib-tab active">Your lists</a>
+                    <a href="#" class="lib-tab">Saved lists</a>
+                    <a href="#" class="lib-tab">Highlights</a>
+                    <a href="#" class="lib-tab">Reading history</a>
+                    <a href="#" class="lib-tab">Responses</a>
+                </div>
+
+                <!-- Green Banner -->
+                <div class="promo-banner">
+                    <button class="banner-close"><i class="bi bi-x-lg"></i></button>
+                    <div class="banner-text-content">
+                        <div class="banner-headline">Create a list to easily organize and share stories</div>
+                        <button class="btn-start-list">Start a list</button>
+                    </div>
+                    <!-- Visuals -->
+                    <div class="banner-deco-circle"></div>
+                    <div class="banner-deco-icon">
+                        <i class="bi bi-bookmark-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Reading List Card -->
+                <div class="list-card-wrapper">
+                    <div class="list-content-left">
+                        <div>
+                            <div class="user-row">
+                                <img src="https://ui-avatars.com/api/?name=User&background=random" class="user-avatar rounded-circle me-2" width="20">
+                                <span>Miguelabera</span>
+                            </div>
+                            <h3 class="list-card-title serif-font">Reading list</h3>
+                        </div>
+                        
+                        <div class="list-card-footer">
+                            <div class="d-flex align-items-center gap-2">
+                                <span>No stories</span>
+                                <i class="bi bi-lock-fill text-muted" style="font-size: 0.8rem;"></i>
+                            </div>
+                            <i class="bi bi-three-dots"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Grey Panes -->
+                    <div class="list-visual-right">
+                        <div class="visual-spine-1"></div>
+                        <div class="visual-spine-2"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/ui.js"></script>
+    <script type="module" src="scripts/apps/GlobalApp.js"></script>
+    <script type="module" src="scripts/library.js"></script>
+</body>
+</html>

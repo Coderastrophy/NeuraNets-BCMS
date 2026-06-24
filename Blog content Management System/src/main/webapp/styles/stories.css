@@ -1,0 +1,89 @@
+/* Note: Common variables and base styles are in shared.css */
+
+/* --- DASHBOARD SPECIFIC STYLES --- */
+.main-content { flex-grow: 1; padding: 48px 64px; }
+
+/* Dashboard Tabs */
+.dash-tabs { display: flex; gap: 64px; border-bottom: 1px solid var(--border-color); margin-bottom: 30px; margin-top: 20px; }
+.dash-tab { text-decoration: none; color: var(--text-muted); padding-bottom: 12px; font-size: 0.95rem; position: relative; }
+.dash-tab:hover { color: var(--text-main); }
+.dash-tab.active { color: var(--text-main); border-bottom: 1px solid var(--text-main); }
+.dash-count { font-size: 0.75rem; vertical-align: super; margin-left: 2px; }
+
+@media (max-width: 768px) {
+    .main-content { padding: 24px; }
+}
+
+/* --- 5. PREMIUM POST LAYOUT (V9) --- */
+.article-card { 
+    margin-bottom: 48px; 
+    cursor: default;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 32px;
+}
+
+.article-content-container {
+    position: relative;
+}
+
+.article-title { 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    margin: 8px 0 12px 0; 
+    color: var(--text-main); 
+    line-height: 1.25; 
+}
+
+.article-desc { 
+    font-size: 1rem; 
+    color: var(--text-muted); 
+    line-height: 1.6; 
+    margin-bottom: 24px; 
+}
+
+.article-img-floated {
+    float: right;
+    width: 160px;
+    height: 105px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-left: 32px;
+    margin-bottom: 16px;
+}
+
+.article-meta { 
+    font-size: 0.85rem; 
+    color: var(--text-muted); 
+    display: flex; 
+    align-items: center; 
+}
+
+.interaction-group {
+    display: flex;
+    align-items: center;
+    gap: 32px; 
+}
+
+.interaction-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.15s;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.interaction-item:hover { color: var(--text-main); }
+.interaction-item i { font-size: 1.2rem; }
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.fade-in { animation: fadeIn 0.5s ease-in; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

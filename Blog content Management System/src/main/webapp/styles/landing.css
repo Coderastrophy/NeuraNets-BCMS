@@ -1,0 +1,194 @@
+:root {
+    --brand-green: #1a8917;
+    --brand-dark: #242424;
+    --text-gray: #6b6b6b;
+    --bg-white: #ffffff;
+    --bg-light: #f9f9f9;
+    --text-main: #242424;
+    --text-muted: #6b6b6b;
+    --border-color: #f2f2f2;
+}
+
+[data-theme="dark"] {
+    --brand-dark: #e0e0e0;
+    --text-gray: #a0a0a0;
+    --bg-white: #121212;
+    --bg-light: #1e1e1e;
+    --text-main: #f0f0f0;
+    --text-muted: #a0a0a0;
+    --border-color: #2e2e2e;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Merriweather', serif;
+}
+
+/* Navbar */
+.navbar-nav .nav-link {
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: var(--brand-green);
+}
+.btn-black {
+    background-color: var(--brand-dark);
+    color: #fff;
+    border: none;
+    transition: opacity 0.2s;
+}
+.btn-black:hover {
+    background-color: #000;
+    color: #fff;
+    opacity: 0.9;
+}
+
+/* Hero */
+.hero-section {
+    padding: 120px 0 80px;
+    background-color: var(--bg-white);
+}
+.hero-heading {
+    font-weight: 500;
+    line-height: 1.2;
+}
+.hero-subtext {
+    font-size: 1.15rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* Floating Cards Animation */
+.art-container {
+    position: relative;
+    width: 100%;
+    height: 400px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.art-bg-glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, rgba(26, 137, 23, 0.1), rgba(0, 123, 255, 0.1));
+    border-radius: 40px;
+    z-index: 1;
+    transform: rotate(-5deg);
+}
+.floating-card {
+    position: absolute;
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 16px;
+    border-top: 4px solid var(--brand-green);
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+.floating-card:hover { transform: scale(1.05) !important; z-index: 20; }
+.skeleton-line { height: 6px; background-color: var(--border-color); border-radius: 4px; margin-bottom: 8px; }
+
+.card-1 { width: 120px; height: 150px; top: 40px; left: 60px; transform: rotate(12deg); }
+.card-2 { width: 130px; height: 160px; top: 60px; right: 60px; border-top-color: var(--text-main); transform: rotate(-6deg); }
+.card-3 { width: 110px; height: 130px; bottom: 60px; left: 90px; border-top-color: #0d6efd; transform: rotate(-3deg); }
+.card-4 { width: 100px; height: 120px; bottom: 80px; right: 80px; transform: rotate(6deg); }
+
+.center-logo-box {
+    position: relative;
+    z-index: 10;
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+
+/* Features */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text-main);
+}
+.feature-card {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2.5rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    background: var(--bg-white);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+/* Minimalist Pill Theme Switch */
+.theme-switch {
+    width: 50px;
+    height: 26px;
+    border-radius: 13px;
+    background: #e0e0e0;
+    position: relative;
+    cursor: pointer !important;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none !important;
+    outline: none !important;
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+    user-select: none;
+}
+
+.switch-knob {
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: absolute;
+    left: 2px;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.switch-knob i {
+    font-size: 0.9rem;
+    color: #f39c12;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .theme-switch {
+    background: #333;
+}
+
+[data-theme="dark"] .switch-knob {
+    left: calc(100% - 24px);
+    background: #fff;
+}
+
+[data-theme="dark"] .switch-knob i {
+    color: #000;
+}

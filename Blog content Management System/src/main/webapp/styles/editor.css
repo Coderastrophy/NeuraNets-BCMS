@@ -1,0 +1,34 @@
+/* Note: Common variables and base styles are in shared.css */
+
+/* --- HEADER (Editor Style) --- */
+/* Inherits .navbar-fixed from shared.css (full width, space-between) */
+
+
+.editor-status { font-size: 0.85rem; color: var(--text-muted); margin-left: 10px; }
+
+/* --- EDITOR AREA --- */
+.editor-container { max-width: 740px; margin: 60px auto; padding: 0 20px; }
+
+.input-title {
+    font-family: 'Merriweather', serif; font-size: 2.8rem; border: none; outline: none; 
+    width: 100%; font-weight: 700; color: var(--text-main); margin-bottom: 20px;
+    background: transparent;
+}
+.input-title::placeholder { color: var(--text-muted); opacity: 0.6; }
+
+.input-body {
+    font-family: 'Merriweather', serif; font-size: 1.3rem; border: none; outline: none; 
+    width: 100%; color: var(--text-main); line-height: 1.6; resize: none; overflow: hidden; height: auto;
+    background: transparent;
+}
+.input-body::placeholder { color: var(--text-muted); opacity: 0.6; }
+
+.add-btn-circle {
+    width: 36px; height: 36px; border: 1px solid var(--text-muted); border-radius: 50%;
+    display: flex; justify-content: center; align-items: center; color: var(--text-muted);
+    cursor: pointer; background: transparent; transition: 0.2s; flex-shrink: 0;
+}
+.add-btn-circle:hover { border-color: var(--text-main); color: var(--text-main); }
+
+/* Floating notification */
+.bottom-notification { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg-light); border-top: 1px solid var(--border-color); padding: 15px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }

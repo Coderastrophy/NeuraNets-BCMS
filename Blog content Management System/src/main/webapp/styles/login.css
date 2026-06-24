@@ -1,0 +1,211 @@
+/* Inheriting basic variables from landing.css ideally, but defining specific verification styles here */
+
+:root {
+    --bg-white: #ffffff;
+    --bg-light: #f4f7f6;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border-color: #dddddd;
+    --accent-dark: #2c3e50;
+    --card-shadow: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+    --bg-white: #121212;
+    --bg-light: #1e1e1e;
+    --text-main: #f0f0f0;
+    --text-muted: #a0a0a0;
+    --border-color: #2e2e2e;
+    --accent-dark: #34495e;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-card {
+    background: var(--bg-white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--card-shadow);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-white);
+    color: var(--text-main);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--accent-dark);
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: var(--accent-dark);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #34495e;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    min-height: 1.2em;
+}
+
+.register-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.register-link a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 2rem;
+    border-radius: 30px; /* Rounded pill style like register/landing options */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: var(--bg-hover, #f8f9fa);
+    border-color: var(--text-muted);
+    color: var(--text-main);
+}
+
+/* Minimalist Pill Theme Switch */
+.theme-switch {
+    width: 50px;
+    height: 26px;
+    border-radius: 13px;
+    background: #e0e0e0;
+    position: relative;
+    cursor: pointer !important;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none !important;
+    outline: none !important;
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+    user-select: none;
+}
+
+.switch-knob {
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: absolute;
+    left: 2px;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.switch-knob i {
+    font-size: 0.9rem;
+    color: #f39c12;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .theme-switch {
+    background: #333;
+}
+
+[data-theme="dark"] .switch-knob {
+    left: calc(100% - 24px);
+    background: #fff;
+}
+
+[data-theme="dark"] .switch-knob i {
+    color: #000;
+}
+
+.theme-toggle-fixed {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}

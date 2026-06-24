@@ -1,0 +1,140 @@
+/* Note: Common variables and base styles are in shared.css */
+
+/* --- PROFILE CONTENT AREA --- */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Inner Grid: Feed vs Profile Info */
+.content-grid {
+    display: flex;
+    width: 100%;
+    max-width: 1050px;
+}
+
+/* LEFT: Profile Feed */
+.profile-feed {
+    flex: 1;
+    padding: 48px 64px 48px 48px;
+    border-right: 1px solid var(--border-color);
+    min-width: 0;
+}
+
+/* Header Area */
+.profile-title-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.profile-name-big { font-family: 'Merriweather', serif; font-size: 2.6rem; font-weight: 700; margin: 0; color: var(--text-main); letter-spacing: -0.5px; }
+.profile-actions-btn { background: none; border: none; font-size: 1.2rem; color: var(--text-muted); cursor: pointer; }
+
+/* Tabs */
+.profile-tabs { display: flex; gap: 32px; border-bottom: 1px solid var(--border-color); margin-bottom: 48px; }
+.p-tab { text-decoration: none; color: var(--text-muted); padding-bottom: 16px; font-size: 0.95rem; position: relative; }
+.p-tab.active { color: var(--text-main); }
+.p-tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--text-main); }
+
+/* Story Item */
+.story-item { margin-bottom: 40px; }
+.story-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; } 
+.story-title { font-family: 'Merriweather', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main); cursor: pointer; }
+.story-snippet { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.story-footer { display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.85rem; }
+
+/* RIGHT: Profile Sidebar */
+.profile-sidebar-right {
+    width: 340px;
+    flex-shrink: 0;
+    padding: 40px 24px 40px 40px;
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+}
+
+.profile-avatar-lg { width: 88px; height: 88px; border-radius: 50%; margin-bottom: 16px; display: block; object-fit: cover; }
+.sidebar-name { font-weight: 500; font-size: 1rem; color: var(--text-main); margin-bottom: 4px; }
+.edit-profile-link { color: #1a8917; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-top: 12px; }
+.edit-profile-link:hover { color: #146c12; }
+
+.footer-links { margin-top: auto; position: absolute; bottom: 40px; }
+.footer-link { color: var(--secondary-gray); text-decoration: none; font-size: 0.75rem; margin-right: 12px; }
+.footer-link:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+    .profile-sidebar-right { display: none; }
+    .profile-feed { border-right: none; padding: 24px; }
+}
+
+/* --- 5. PREMIUM POST LAYOUT (V9) --- */
+.article-card { 
+    margin-bottom: 48px; 
+    cursor: default;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 32px;
+}
+
+.article-content-container {
+    position: relative;
+}
+
+.article-title { 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    margin: 8px 0 12px 0; 
+    color: var(--text-main); 
+    line-height: 1.25; 
+}
+
+.article-desc { 
+    font-size: 1rem; 
+    color: var(--text-muted); 
+    line-height: 1.6; 
+    margin-bottom: 24px; 
+}
+
+.article-img-floated {
+    float: right;
+    width: 160px;
+    height: 105px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-left: 32px;
+    margin-bottom: 16px;
+}
+
+.article-meta { 
+    font-size: 0.85rem; 
+    color: var(--text-muted); 
+    display: flex; 
+    align-items: center; 
+}
+
+.interaction-group {
+    display: flex;
+    align-items: center;
+    gap: 32px; 
+}
+
+.interaction-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.15s;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.interaction-item:hover { color: var(--text-main); }
+.interaction-item i { font-size: 1.2rem; }
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.fade-in { animation: fadeIn 0.5s ease-in; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
